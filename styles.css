@@ -54,7 +54,7 @@ footer a:hover{
 
 #calculatorBody{
     background-color: #E71D36;
-    min-height: 30rem;
+    min-height: 25rem;
     min-width: 25rem;
     margin-bottom: 3rem;
     border-radius: 1rem;
@@ -67,6 +67,17 @@ footer a:hover{
     background-color: #FDFFFC;
     min-height: 4rem;
     border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 .8rem;
+
+}
+
+#display p{
+    margin: 0;
+    font-size: 3rem;
+    color: #011627;
 }
 
 #buttonsContainer{
@@ -94,12 +105,12 @@ button{
     padding: 0;
     outline: none;
     border: none;
-    box-shadow: .2rem .2rem #999;
+    box-shadow: .2rem .2rem #f77f00;
 }
 
 button:active{
     background-color: #fbb554;
-    box-shadow: .2rem .2rem #666;
+    box-shadow: .2rem .2rem #fa6208;
     transform: translateY(0.1rem);
 }
 
