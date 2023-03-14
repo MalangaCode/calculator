@@ -1,22 +1,107 @@
+html{
+    font-size: 16px;
+}
 body{
     background-color: #2EC4B6;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
     font-family: 'ZCOOL QingKe HuangYou';
+    margin: 0;
+    padding: 0;
 }
-body div{
+
+header{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 h1{
     color: #E71D36;
-    font-size: 45px;
+    font-size: 4rem;
 }
-#footer{
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #E71D36;
-    font-size: 28px;
-    padding: 10px;
+    font-size: 2rem;
+    padding: .8rem;
 }
-#footer p{
-margin: 0px;}
+
+footer p{
+    margin: 0;
+    color: #FF9F1C;
+}
+
+footer a{
+    color: #FF9F1C;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #011627;
+    text-decoration: underline;
+}
+
+#calculatorBody{
+    background-color: #E71D36;
+    min-height: 30rem;
+    min-width: 25rem;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+#display{
+    background-color: #FDFFFC;
+    min-height: 4rem;
+    border-radius: 0.5rem;
+}
+
+#buttonsContainer{
+    flex: 1;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.8rem;
+}
+
+.plusBtn{
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+
+button{
+    background-color: #FF9F1C;
+    border-radius: .5rem;
+    font-size: 2.5rem;
+    font-family: 'ZCOOL QingKe HuangYou';
+    color: #011627;
+    padding: 0;
+    outline: none;
+    border: none;
+    box-shadow: .2rem .2rem #999;
+}
+
+button:active{
+    background-color: #fbb554;
+    box-shadow: .2rem .2rem #666;
+    transform: translateY(0.1rem);
+}
+
+
+
