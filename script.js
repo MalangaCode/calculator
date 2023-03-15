@@ -91,10 +91,18 @@ numBtn.forEach((number) => {
             (operator === 'division') ? division()    :
             'error';
 
-            screen.textContent = result;
+            screen.textContent = result.toFixed(1);
             operator = undefined;
             a.shift();
 
+        } else if (number.getAttribute('class') === 'dot') {
+            if (screen.textContent.includes('.')){
+
+            } else {
+                screen.textContent += '.'
+            }
+        } else if (number.getAttribute('class') === 'delete') {
+            screen.textContent = ''
         }
     })
 });

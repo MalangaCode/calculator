@@ -89,12 +89,7 @@ footer a:hover{
     gap: 0.8rem;
 }
 
-.equal{
-    grid-row-start: 3;
-    grid-row-end: 5;
-    grid-column-start: 5;
-    grid-column-end: 6;
-}
+
 
 button{
     background-color: #FF9F1C;
