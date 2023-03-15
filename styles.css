@@ -89,7 +89,7 @@ footer a:hover{
     gap: 0.8rem;
 }
 
-.plusBtn{
+.equal{
     grid-row-start: 3;
     grid-row-end: 5;
     grid-column-start: 5;
