@@ -21,8 +21,10 @@ function division() {
     a.shift();
 }
 
-function percentage() {
-    n / 100
+function percentage(n) {
+    result = n / 100;
+    a.push(result);
+    a.shift();
 }
 
 const numBtn = document.querySelectorAll('button');
@@ -91,7 +93,7 @@ numBtn.forEach((number) => {
             (operator === 'division') ? division()    :
             'error';
 
-            screen.textContent = result.toFixed(1);
+            screen.textContent = result.toFixed(3);
             operator = undefined;
             a.shift();
 
@@ -102,7 +104,13 @@ numBtn.forEach((number) => {
                 screen.textContent += '.'
             }
         } else if (number.getAttribute('class') === 'delete') {
+            
             screen.textContent = ''
+
+        } else if (number.getAttribute('class') === 'percentage') {
+        
+            percentage((Number(screen.textContent)));
+            screen.textContent = result;
         }
     })
 });
