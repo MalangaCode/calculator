@@ -61,12 +61,7 @@ numBtn.forEach((number) => {
             } else {
                 a.push(Number(screen.textContent));
 
-                (operator === undefined)  ? ''            : 
-                (operator === 'plus')     ? add()         :
-                (operator === 'minus')    ? subtraction() :
-                (operator === 'multiply') ? multiply()    :
-                (operator === 'division') ? division()    :
-                'error';
+                setMathOperation (operator);
 
 
                 (number.getAttribute('id') === 'plus') ? operator = 'plus' : 
@@ -86,12 +81,7 @@ numBtn.forEach((number) => {
             
             a.push(Number(screen.textContent));
 
-            (operator === undefined)  ? ''            : 
-            (operator === 'plus')     ? add()         :
-            (operator === 'minus')    ? subtraction() :
-            (operator === 'multiply') ? multiply()    :
-            (operator === 'division') ? division()    :
-            'error';
+            setMathOperation (operator);
 
             screen.textContent = result.toPrecision();
             operator = undefined;
@@ -117,3 +107,14 @@ numBtn.forEach((number) => {
         }
     })
 });
+
+function setMathOperation (operator) {
+
+    (operator === undefined)  ? ''            : 
+    (operator === 'plus')     ? add()         :
+    (operator === 'minus')    ? subtraction() :
+    (operator === 'multiply') ? multiply()    :
+    (operator === 'division') ? division()    :
+    '';
+
+}
