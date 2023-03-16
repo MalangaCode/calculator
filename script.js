@@ -1,8 +1,8 @@
 
 const buttons = document.querySelectorAll('button');
-const a = [];
+const operands = [];
 let operator;
-let result;
+let product;
 
 buttons.forEach((btn) => {
     
@@ -15,23 +15,23 @@ buttons.forEach((btn) => {
         
         if(btnClass === 'number'){
             
-            screen.textContent += btn.id
+            screen.textContent += btn.id;
 
         } else if (btnClass === 'clear') {
             
             screen.textContent = '';
-            a.splice(0, a.length);
+            operands.splice(0, operands.length);
 
         } else if (btnClass === 'operator') {
 
             if (screen.textContent === '') {
+                
                 screen.textContent = '';
-
-                setOperator (btnId)
+                setOperator (btnId);
 
             } else {
-                a.push(Number(screen.textContent));
 
+                operands.push(Number(screen.textContent));
                 setMathOperation (operator);
                 setOperator (btnId);
                 screen.textContent = '';
@@ -39,13 +39,13 @@ buttons.forEach((btn) => {
 
         } else if (btnClass === 'equal') {
             
-            a.push(Number(screen.textContent));
+            operands.push(Number(screen.textContent));
 
             setMathOperation (operator);
 
-            screen.textContent = result.toPrecision();
+            screen.textContent = product.toPrecision();
             operator = undefined;
-            a.shift();
+            operands.shift();
 
         } else if (btnClass === 'dot') {
             if (screen.textContent.includes('.')){
@@ -60,7 +60,7 @@ buttons.forEach((btn) => {
         } else if (btnClass === 'percentage') {
         
             percentage((Number(screen.textContent)));
-            screen.textContent = result;
+            screen.textContent = product;
 
         } else if (btnClass === 'symbol') {
             screen.textContent = Number(- + screen.textContent)
@@ -80,38 +80,38 @@ function setMathOperation (operator) {
 
 function setOperator (btnId) {
 
-    (btnId === 'plus') ? operator = 'plus' : 
-    (btnId === 'minus') ? operator = 'minus' :
+    (btnId === 'plus')     ? operator = 'plus'     : 
+    (btnId === 'minus')    ? operator = 'minus'    :
     (btnId === 'multiply') ? operator = 'multiply' :
-    (btnId === 'divide') ? operator = 'divide' : 
+    (btnId === 'division')   ? operator = 'division'   : 
     '';
 }
 
 function add() {
-    result = a[0] + a[1];
-    a[1] = result;
-    a.shift();
+    product = operands[0] + operands[1];
+    operands[1] = product;
+    operands.shift();
 }
  function subtraction() {
-    result = a[0] - a[1];
-    a[1] = result;
-    a.shift();
+    product = operands[0] - operands[1];
+    operands[1] = product;
+    operands.shift();
 }
 
 function multiply() {
-    result = a[0] * a[1];
-    a[1] = result;
-    a.shift();
+    product = operands[0] * operands[1];
+    operands[1] = product;
+    operands.shift();
 }
 
 function division() {
-        result = a[0] / a[1];
-        a[1] = result;
-        a.shift();
+    product = operands[0] / operands[1];
+    operands[1] = product;
+    operands.shift();
 }
 
 function percentage(n) {
-    result = n / 100;
-    a.push(result);
-    a.shift();
+    product = n / 100;
+    operands.push(product);
+    operands.shift();
 }
