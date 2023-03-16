@@ -16,9 +16,9 @@ function multiply() {
 }
 
 function division() {
-    result = a[0] / a[1];
-    a[1] = result;
-    a.shift();
+        result = a[0] / a[1];
+        a[1] = result;
+        a.shift();
 }
 
 function percentage(n) {
@@ -93,7 +93,7 @@ numBtn.forEach((number) => {
             (operator === 'division') ? division()    :
             'error';
 
-            screen.textContent = result.toFixed(3);
+            screen.textContent = result.toPrecision();
             operator = undefined;
             a.shift();
 
@@ -111,7 +111,9 @@ numBtn.forEach((number) => {
         
             percentage((Number(screen.textContent)));
             screen.textContent = result;
+
+        } else if (number.getAttribute('class') === 'symbol') {
+            screen.textContent = Number(- + screen.textContent)
         }
     })
 });
-console.log(numBtn);
