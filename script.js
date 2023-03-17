@@ -4,6 +4,47 @@ const operands = [];
 let operator;
 let product;
 
+addEventListener("keydown", function(event) {
+    console.log(event.key);
+    if (event.key >= 0) {
+
+      event.preventDefault();
+      document.getElementById(event.key).click();
+
+    } else if (event.key === 'Backspace') {
+
+        event.preventDefault();
+        document.getElementById('ac').click();
+  
+    } else if (event.key === 'c') {
+
+        event.preventDefault();
+        document.getElementById('c').click();
+  
+    } else if (event.key === '+' || event.key === '-'|| event.key === '*' || event.key === '/') {
+
+        event.preventDefault();
+        document.getElementById(event.key).click();
+  
+    } else if (event.key === 'Enter') {
+
+        event.preventDefault();
+        document.getElementById('enter').click();
+  
+    } else if (event.key === '.') {
+
+        event.preventDefault();
+        document.getElementById(event.key).click();
+  
+    } else if (event.key === '%') {
+
+        event.preventDefault();
+        document.getElementById(event.key).click();
+  
+    }
+  });
+
+
 buttons.forEach((btn) => {
     
     btn.addEventListener('click', () => {
@@ -80,10 +121,10 @@ function setMathOperation (operator) {
 
 function setOperator (btnId) {
 
-    (btnId === 'plus')     ? operator = 'plus'     : 
-    (btnId === 'minus')    ? operator = 'minus'    :
-    (btnId === 'multiply') ? operator = 'multiply' :
-    (btnId === 'division')   ? operator = 'division'   : 
+    (btnId === '+')     ? operator = 'plus'     : 
+    (btnId === '-')    ? operator = 'minus'    :
+    (btnId === '*') ? operator = 'multiply' :
+    (btnId === '/')   ? operator = 'division'   : 
     '';
 }
 
