@@ -46,60 +46,71 @@ buttons.forEach((btn) => {
 
         const screen = document.getElementById('screenText');
         
-        if(btnClass === 'number'){
-            
-            screen.textContent += btn.id;
+        switch (btnClass) {
+            case 'number':
 
-        } else if (btnClass === 'clear') {
-            
-            screen.textContent = '';
-            operands.splice(0, operands.length);
+                screen.textContent += btn.id;
+                break;
 
-        } else if (btnClass === 'operator') {
+            case 'clear':
 
-            if (screen.textContent === '') {
-                
                 screen.textContent = '';
-                setOperator (btnId);
+                operands.splice(0, operands.length);
+                break;
 
-            } else {
+            case 'operator':
+                
+                if (screen.textContent === '') {
+                    
+                    screen.textContent = '';
+                    setOperator (btnId);
+
+                } else {
+
+                    operands.push(Number(screen.textContent));
+                    setMathOperation (operator);
+                    setOperator (btnId);
+                    screen.textContent = '';
+                };
+                break;
+
+            case 'equal':
 
                 operands.push(Number(screen.textContent));
+
                 setMathOperation (operator);
-                setOperator (btnId);
+
+                screen.textContent = product.toPrecision();
+                operator = undefined;
+                operands.shift();
+                break;
+
+            case 'dot':
+
+                if (screen.textContent.includes('.')){
+                } else {
+                    screen.textContent += '.'
+                };
+                break;
+            
+            case 'delete':
+
                 screen.textContent = '';
-            }
+                break;
 
-        } else if (btnClass === 'equal') {
+            case 'percentage':
+
+                percentage((Number(screen.textContent)));
+                screen.textContent = product;
+                break;
             
-            operands.push(Number(screen.textContent));
+            case 'symbol':
 
-            setMathOperation (operator);
-
-            screen.textContent = product.toPrecision();
-            operator = undefined;
-            operands.shift();
-
-        } else if (btnClass === 'dot') {
-            if (screen.textContent.includes('.')){
-
-            } else {
-                screen.textContent += '.'
-            }
-        } else if (btnClass === 'delete') {
-            
-            screen.textContent = ''
-
-        } else if (btnClass === 'percentage') {
-        
-            percentage((Number(screen.textContent)));
-            screen.textContent = product;
-
-        } else if (btnClass === 'symbol') {
-            screen.textContent = Number(- + screen.textContent)
-        }
+                screen.textContent = Number(- + screen.textContent);
+                break;
+        };
     })
-});
+})
 
 function setMathOperation (operator) {
 
