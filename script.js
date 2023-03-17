@@ -1,4 +1,3 @@
-
 const buttons = document.querySelectorAll('button');
 const operands = [];
 let operator;
@@ -32,8 +31,7 @@ addEventListener("keydown", function(event) {
         
             event.preventDefault();
             document.getElementById(key).click();
-
-        break;
+            break;
     }
 })
 
@@ -43,10 +41,10 @@ buttons.forEach((btn) => {
 
         const btnId = btn.getAttribute('id');
         const btnClass = btn.getAttribute('class');
-
         const screen = document.getElementById('screenText');
         
         switch (btnClass) {
+
             case 'number':
 
                 screen.textContent += btn.id;
@@ -77,9 +75,7 @@ buttons.forEach((btn) => {
             case 'equal':
 
                 operands.push(Number(screen.textContent));
-
                 setMathOperation (operator);
-
                 screen.textContent = product.toPrecision();
                 operator = undefined;
                 operands.shift();
@@ -114,48 +110,50 @@ buttons.forEach((btn) => {
 
 function setMathOperation (operator) {
 
-    (operator === undefined)  ? ''            : 
-    (operator === 'plus')     ? add()         :
-    (operator === 'minus')    ? subtraction() :
-    (operator === 'multiply') ? multiply()    :
-    (operator === 'division') ? division()    :
-    '';
+    (operator === undefined)  ? '' : operate (operator);
 }
 
 function setOperator (btnId) {
 
-    (btnId === '+')     ? operator = 'plus'     : 
-    (btnId === '-')    ? operator = 'minus'    :
-    (btnId === '*') ? operator = 'multiply' :
-    (btnId === '/')   ? operator = 'division'   : 
-    '';
-}
-
-function add() {
-    product = operands[0] + operands[1];
-    operands[1] = product;
-    operands.shift();
-}
- function subtraction() {
-    product = operands[0] - operands[1];
-    operands[1] = product;
-    operands.shift();
-}
-
-function multiply() {
-    product = operands[0] * operands[1];
-    operands[1] = product;
-    operands.shift();
-}
-
-function division() {
-    product = operands[0] / operands[1];
-    operands[1] = product;
-    operands.shift();
+    operator = btnId;
 }
 
 function percentage(n) {
     product = n / 100;
     operands.push(product);
     operands.shift();
+}
+
+function operate (operator) {
+
+    switch (operator) {
+
+        case '+':
+
+            product = operands[0] + operands[1];
+            operands[1] = product;
+            operands.shift();
+            break;
+        
+        case '-':
+
+            product = operands[0] - operands[1];
+            operands[1] = product;
+            operands.shift();
+            break;
+        
+        case '*':
+
+            product = operands[0] * operands[1];
+            operands[1] = product;
+            operands.shift();
+            break;
+        
+        case '/':
+
+            product = operands[0] / operands[1];
+            operands[1] = product;
+            operands.shift();
+            break;
+    }
 }
