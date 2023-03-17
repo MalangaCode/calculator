@@ -5,45 +5,37 @@ let operator;
 let product;
 
 addEventListener("keydown", function(event) {
-    console.log(event.key);
-    if (event.key >= 0) {
+    
+    const key = event.key;
 
-      event.preventDefault();
-      document.getElementById(event.key).click();
+    switch (key) {
 
-    } else if (event.key === 'Backspace') {
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case 'c':
+        case '%':
+        case '.':
+        case 'Enter':
+        case 'Backspace':
+        
+            event.preventDefault();
+            document.getElementById(key).click();
 
-        event.preventDefault();
-        document.getElementById('ac').click();
-  
-    } else if (event.key === 'c') {
-
-        event.preventDefault();
-        document.getElementById('c').click();
-  
-    } else if (event.key === '+' || event.key === '-'|| event.key === '*' || event.key === '/') {
-
-        event.preventDefault();
-        document.getElementById(event.key).click();
-  
-    } else if (event.key === 'Enter') {
-
-        event.preventDefault();
-        document.getElementById('enter').click();
-  
-    } else if (event.key === '.') {
-
-        event.preventDefault();
-        document.getElementById(event.key).click();
-  
-    } else if (event.key === '%') {
-
-        event.preventDefault();
-        document.getElementById(event.key).click();
-  
+        break;
     }
-  });
-
+})
 
 buttons.forEach((btn) => {
     
