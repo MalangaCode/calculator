@@ -40,6 +40,7 @@ footer{
 footer p{
     margin: 0;
     color: #FF9F1C;
+    text-align: center;
 }
 
 footer a{
@@ -54,8 +55,8 @@ footer a:hover{
 
 #calculatorBody{
     background-color: #E71D36;
-    min-height: 25rem;
-    min-width: 25rem;
+    height: min(25rem, 80vw);
+    width: min(25rem, 80vw);
     margin-bottom: 3rem;
     border-radius: 1rem;
     display: flex;
@@ -71,6 +72,7 @@ footer a:hover{
     align-items: center;
     justify-content: flex-end;
     padding: 0 .8rem;
+    text-overflow: clip;
 
 }
 
@@ -78,6 +80,9 @@ footer a:hover{
     margin: 0;
     font-size: 3rem;
     color: #011627;
+    white-space: nowrap;
+    overflow: hidden;
+    direction: ltr;
 }
 
 #buttonsContainer{
